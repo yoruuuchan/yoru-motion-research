@@ -1,0 +1,28 @@
+{
+  "schema": "yoru-motion-curation/v2",
+  "dataset": "video-shotcraft",
+  "source": "video-shotcraft",
+  "upstream": {
+    "repo": "https://github.com/Vincentwei1021/video-shotcraft",
+    "commit": "0d6f0b57f0d4d6700761644c07f7ef03c3e50234",
+    "commitDate": "2026-08-14T04:17:12Z",
+    "commitVerified": true,
+    "libraryRevision": "bdd94be16d60fa8f",
+    "libraryBlobSha1": "fcbc96b2b8a08959ace510460988cc012291caa3",
+    "libraryGeneratedAt": "2026-07-19T05:01:54.882Z",
+    "previewBase": "https://vincentwei1021.github.io/video-shotcraft/media/",
+    "sourceBase": "https://github.com/Vincentwei1021/video-shotcraft/blob/0d6f0b57f0d4d6700761644c07f7ef03c3e50234/"
+  },
+  "exportedAt": "2026-08-20T06:43:04.893Z",
+  "totalCandidates": 209,
+  "counts": {
+    "keep": 137,
+    "maybe": 57,
+    "reject": 15,
+    "unrated": 0
+  },
+  "archive": "video-shotcraft-2026-08-20.json.bz2",
+  "compression": "bzip2",
+  "uncompressedSha256": "3502f50c8b77a5d41073709bdedbb87495538b1656ffffbc3e353c5b0bee48cb",
+  "note": "Decompressing the archive yields the exported JSON byte-for-byte. Verdicts are authoritative and must not be rewritten by inference."
+}

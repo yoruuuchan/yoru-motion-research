@@ -1,0 +1,149 @@
+keep	camera	basic-3d-scene	blur 3d hue gradient radius
+keep	camera	crash-zoom-punch	
+keep	camera	cursor-flyover	blur gradient radius
+keep	camera	depth-layer-moves	blur radius
+keep	camera	graze-face-tour	blur 3d gradient radius
+keep	camera	overhead-camera-moves	3d gradient radius
+keep	camera	space-camera-moves	blur 3d gradient radius
+keep	camera	steep-tilt-glide	blur glow 3d gradient radius
+keep	camera	tension-camera-moves	glow 3d radius
+keep	camera	terminal-3d	blur 3d gradient radius
+keep	data	before-after-slider-scrub	glow radius
+keep	data	chart-live-moves	spring blur radius
+keep	data	gauge-readout-moves	spring radius
+keep	data	hatch-depth	gradient radius
+keep	data	odometer-digit-roll	radius
+keep	data	particle-sand-fill	radius
+keep	data	scroll-brake-moves	blur radius
+keep	data	timeline-travel	spring radius
+keep	effects	assemble-then-type-flyin	spring blur 3d gradient radius
+keep	effects	brand-frame-snap	spring radius
+keep	effects	dashboard-glow-highlight-pill	blur glow 3d blend gradient radius
+keep	effects	fui-hud-moves	radius
+keep	effects	glow-flyline-moves	blur gradient radius
+keep	effects	icon-performance-moves	blur radius
+keep	effects	impact-feedback	blend radius
+keep	effects	light-play-moves	blur
+keep	effects	radial-ripple-phone-chips	spring gradient radius
+keep	effects	scan-bracket-sweep	gradient radius
+keep	effects	scanline-annotate-focus	spring glow gradient radius
+keep	effects	scanline-assemble-flyin	spring blur glow gradient radius
+keep	effects	spotlight-sweep-moves	blur glow 3d gradient radius
+keep	interaction	ai-stream-response	blur glow gradient radius
+keep	interaction	autolayout-gap-dial	spring gradient radius
+keep	interaction	canvas-materialize-moves	spring gradient radius
+keep	interaction	chip-grid-single-select-blackout	radius
+keep	interaction	chip-lift-to-user-pill	spring glow radius
+keep	interaction	collab-cursor-moves	spring gradient radius
+keep	interaction	command-palette-summon	blur radius
+keep	interaction	hashtag-to-pill-materialize	radius
+keep	interaction	input-trigger-moves	blur gradient radius
+keep	interaction	picker-carousel-feature-cycle	gradient radius
+keep	interaction	segmented-thumb-hero	spring radius
+keep	interaction	theme-switch-moves	blur glow radius
+keep	interaction	voice-waveform-live	blur gradient radius
+keep	opening	crane-rise-reveal	radius
+keep	opening	dataviz-landscape-open	blur gradient
+keep	opening	fracture	3d hue gradient radius
+keep	opening	letterspace-materialize	blur glow gradient
+keep	opening	magician-card-flourish	blur 3d blend gradient radius
+keep	opening	stroke-segment-build	
+keep	outro	logo-shrink-wordmark-lockup	blur
+keep	outro	neon-triple-marquee	glow
+keep	outro	ui-strip-away-outro	spring radius
+keep	outro	ui-to-brand-morph	spring blur
+keep	rhythm	beat-cut-moves	
+keep	rhythm	beat-step-list-theme-cycle	gradient radius
+keep	rhythm	montage-rhythm-moves	3d radius
+keep	rhythm	panel-grid-moves	radius
+keep	rhythm	quad-split-parallel-scenes	spring blur radius
+keep	rhythm	smear-multiples	radius
+keep	rhythm	speed-ramp-freeze	radius
+keep	rhythm	trailer-grammar-moves	blur
+keep	transition	bottom-push-stack-wipe	gradient radius
+keep	transition	card-flip-reveal	3d gradient radius
+keep	transition	card-flock-tumble	blur glow 3d gradient radius
+keep	transition	circle-match-iris	radius
+keep	transition	color-block-step-wipe	radius
+keep	transition	cube-navigation	3d hue blend gradient radius
+keep	transition	line-carry-transition	radius
+keep	transition	mosaic-reframe	glow hue gradient radius
+keep	transition	page-turn-transitions	blur 3d gradient
+keep	transition	paper-plane-messenger	blur gradient radius
+keep	transition	print-texture-transitions	
+keep	transition	transition-hidden-cut	radius
+keep	typography	countdown-arc-scatter	blur radius
+keep	typography	flying-words	blur glow 3d hue gradient radius
+keep	typography	glitch-cycle	radius
+keep	typography	gradient-word-sweep	blur glow gradient radius
+keep	typography	scramble	
+keep	typography	type-assembly-moves	blur
+keep	typography	typewriter-moves	blur radius
+keep	typography	typing-code-block	radius
+keep	typography	word-relay-filmstrip	gradient radius
+keep	ui-entrance	card-stack	spring 3d hue gradient radius
+keep	ui-entrance	doc-park-left-pill-deal	spring radius
+keep	ui-entrance	draw-svg-trace	radius
+keep	ui-entrance	element-body-moves	gradient radius
+keep	ui-entrance	floating-glossy-label-pills	blur glow hue gradient radius
+keep	ui-entrance	integration-hub-map	blur glow 3d hue gradient radius
+keep	ui-entrance	list-reveal	spring hue gradient radius
+keep	ui-entrance	neon-frame-forerun	blur 3d hue gradient radius
+keep	ui-entrance	neon-frame-orbit-drop	blur 3d hue gradient radius
+keep	ui-entrance	page-waterfall-wall	3d gradient radius
+keep	ui-entrance	paper-craft-moves	spring blur 3d gradient radius
+keep	ui-entrance	product-card-progressive-assemble	spring gradient radius
+keep	ui-entrance	radial-wave	radius
+keep	ui-entrance	research-card-stack-scroll	spring blur gradient radius
+keep	ui-entrance	runway-ground-skim	blur 3d gradient radius
+keep	ui-entrance	skeleton-reveal	spring radius
+keep	ui-entrance	value-stagger-gradient	blur glow hue gradient radius
+keep	ui-entrance	wall-reveal-moves	glow 3d gradient radius
+maybe	camera	tension-camera-moves	gradient
+maybe	data	avatar-grid-radial-build-colorize	hue gradient radius
+maybe	data	counter-confetti	spring glow gradient radius
+maybe	effects	aurora-bloom-bg-flip	blur gradient radius
+maybe	effects	fui-hud-moves	glow radius
+maybe	effects	glow-flyline-moves	blur gradient radius
+maybe	effects	light-play-moves	gradient radius
+maybe	effects	line-boil	radius
+maybe	effects	slam-entrance-moves	spring blur 3d radius
+maybe	interaction	glass-pill-dictation-typing	gradient radius
+maybe	opening	icon-field-colorize	
+maybe	outro	edit-hook-moves	radius
+maybe	outro	grain-dissolve	glow
+maybe	outro	ui-to-brand-morph	spring glow radius
+maybe	rhythm	beat-cut-moves	
+maybe	rhythm	montage-rhythm-moves	radius
+maybe	rhythm	panel-grid-moves	
+maybe	rhythm	rhythm-interrupt-moves	radius
+maybe	rhythm	sakuga-timing-shift	radius
+maybe	rhythm	spectrum-morph-ui	radius
+maybe	rhythm	speed-ramp-freeze	radius
+maybe	rhythm	trailer-grammar-moves	radius
+maybe	transition	bubble-swarm-takeover	blur gradient radius
+maybe	transition	page-turn-transitions	
+maybe	transition	shot-transitions	radius
+maybe	transition	tear-streak-transitions	
+maybe	transition	transition-hidden-cut	blur blend gradient radius
+maybe	transition	transition-travel	blur radius
+maybe	transition	white-flash-logo-simplify-cut	blur blend gradient
+maybe	transition	wipe-transitions	
+maybe	typography	blur-slide	blur
+maybe	typography	brace-expand	spring
+maybe	typography	cel-flash-stomp	radius
+maybe	typography	marker-underline-title	
+maybe	typography	outline-word-fill	radius
+maybe	typography	pill-slot-cycle	blur radius
+maybe	typography	split-flap-title	3d radius
+maybe	typography	title-demote-to-label	blur radius
+maybe	typography	type-assembly-moves	
+maybe	typography	type-entrance-moves	radius
+maybe	typography	type-rhythm-sync	radius
+maybe	typography	vertical-word-roll-blur-cycle	spring blur
+maybe	ui-entrance	avatar-bracket-carousel	spring blur radius
+maybe	ui-entrance	bezier-source-converge-merge	spring radius
+maybe	ui-entrance	carousel-3d	3d hue gradient radius
+maybe	ui-entrance	cloner-depth-echo	spring 3d
+maybe	ui-entrance	morph-from-primitive	radius
+maybe	ui-entrance	svg-shape-morph	glow hue

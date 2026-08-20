@@ -1,0 +1,101 @@
+version: 0.1
+updated: 2026-08-14
+policy:
+  unknown_license: "REFERENCE_ONLY until verified"
+  custom_license: "Do not copy code until terms are reviewed for the intended use"
+  assets: "Track code, audio, fonts, images, video and model assets separately"
+
+entries:
+  Vincentwei1021/video-shotcraft:
+    code_license: Apache-2.0
+    verified_from: LICENSE
+    status: reusable_with_conditions
+    obligations:
+      - retain_license
+      - retain_relevant_notices
+      - mark_modified_files_when_redistributed
+      - audit_bundled_audio_and_media_separately
+
+  av/remotion-bits:
+    code_license: MIT
+    verified_from: package.json
+    status: likely_reusable
+    obligations:
+      - retain_copyright_and_permission_notice_in_copies_or_substantial_portions
+    note: "Formal repository LICENSE file was not found in the first pass; package metadata declares MIT. Recheck before code import."
+
+  remotionhub/remotionhub-assets:
+    code_license: MIT
+    verified_from: LICENSE
+    status: reusable_with_notice
+    obligations:
+      - retain_copyright_and_permission_notice
+
+  motion-canvas/motion-canvas:
+    code_license: MIT
+    verified_from: LICENSE
+    status: reusable_with_notice
+
+  midrender/revideo:
+    code_license: MIT
+    verified_from: LICENSE
+    status: reusable_with_notice
+
+  frankxai/awesome-motion-design-agent-skills:
+    code_license: MIT
+    verified_from: README
+    status: discovery_reference
+
+  remotion-dev/remotion:
+    code_license: Remotion-License
+    verified_from: LICENSE.md
+    status: dependency_with_entity_rules
+    note: "Current license grants free use to individuals, non-profits and for-profit organizations up to 3 employees; other for-profit organizations require a Company License. Re-check current terms before deployment."
+
+  reactvideoeditor/free-react-video-editor:
+    code_license: RVE-Custom
+    verified_from: README
+    status: reference_only
+    note: "README states RVE licensing plus separate Remotion licensing may apply."
+
+  reactvideoeditor/remotion-templates:
+    code_license: unspecified
+    verified_from: GitHub_metadata_no_license
+    status: reference_only
+    note: "Do not copy code until an explicit license or permission is verified."
+
+  reactvideoeditor/clippkit:
+    code_license: pending
+    verified_from: README_only
+    status: reference_only
+    note: "README says attribution is optional, but that sentence is not a substitute for a formal code license."
+
+  locomotion-pro/locomotion:
+    code_license: pending
+    verified_from: no_LICENSE_found_first_pass
+    status: reference_only
+    note: "README says free/copy the code, but formal redistribution terms still need verification before importing code."
+
+  remotion-dev/skills:
+    code_license: pending
+    status: reference_only
+
+  remotion-dev/template-prompt-to-motion-graphics-saas:
+    code_license: pending
+    status: reference_only
+
+  remotion-dev/template-audiogram:
+    code_license: pending
+    status: reference_only
+
+  remotion-dev/template-next-app-dir:
+    code_license: pending
+    status: reference_only
+
+  ManimCommunity/manim:
+    code_license: pending_verification
+    status: inspiration_only_for_now
+
+  Zulko/moviepy:
+    code_license: pending_verification
+    status: utility_reference_for_now

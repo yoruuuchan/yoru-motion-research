@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YORU motion screening console</title>
+<style>
+:root{--bg:#0b1020;--surface:#10182a;--elevated:#151f35;--sunken:#080d18;--ink:#edf2ff;--muted:#8c98b2;--primary:#7a95fa;--ember:#f07830;--frost:#38c8c0;--danger:#ff8791;--line:rgba(208,220,255,.10);--shadow:0 12px 28px rgba(0,0,0,.36),0 -1px 0 rgba(255,255,255,.035) inset}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 88% 0,rgba(122,149,250,.08),transparent 28%),var(--bg);color:var(--ink);font-family:system-ui,"Segoe UI","Microsoft YaHei",sans-serif;font-size:13px}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:sticky;top:0;z-index:10;padding:14px 16px 12px;background:rgba(11,16,32,.88);backdrop-filter:blur(18px) saturate(135%);border-bottom:1px solid var(--line)}
+.topline{display:flex;gap:16px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font-size:11px;letter-spacing:.08em;color:var(--muted)}
+h1{font-size:21px;line-height:1.1;margin:3px 0 0;font-weight:650;letter-spacing:-.02em}
+.stats{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.stat{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.035);color:var(--muted);white-space:nowrap}
+.stat b{color:var(--ink);font-weight:650}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.toolbar input,.toolbar select,.toolbar button,textarea{background:var(--sunken);border:1px solid rgba(255,255,255,.06);border-radius:10px;box-shadow:inset 3px 3px 8px rgba(0,0,0,.34),inset -2px -2px 6px rgba(255,255,255,.025)}
+.toolbar input,.toolbar select,.toolbar button{min-height:38px;padding:8px 10px}
+.toolbar input{min-width:240px;flex:1 1 260px}
+.toolbar button{cursor:pointer;background:var(--surface);box-shadow:0 5px 12px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.03)}
+.toolbar select#dataset{box-shadow:0 0 0 1.5px var(--frost),inset 3px 3px 8px rgba(0,0,0,.34)}
+button:active{transform:scale(.985);box-shadow:inset 3px 3px 8px rgba(0,0,0,.34)}
+button.active{box-shadow:0 0 0 1.5px var(--primary),inset 3px 3px 8px rgba(0,0,0,.32);color:#fff}
+.hint{margin-top:9px;color:var(--muted);font-size:12px}
+.hint code,.stable-id,.filename{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+main{padding:16px}
+.summary{margin:0 0 8px;color:var(--muted)}
+.pager{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 14px}
+.pager button{min-height:34px;padding:7px 12px;border:0;border-radius:9px;background:var(--surface);color:var(--ink);cursor:pointer;box-shadow:0 5px 12px rgba(0,0,0,.22)}
+.pager button:disabled{opacity:.35;cursor:default;transform:none;box-shadow:none}
+.pager span{min-width:92px;text-align:center;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px}
+.card{background:var(--surface);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-1px)}
+.card[data-status="keep"]{box-shadow:0 0 0 1.5px var(--primary),var(--shadow)}
+.card[data-status="maybe"]{box-shadow:0 0 0 1.5px var(--ember),var(--shadow)}
+.card[data-status="reject"]{box-shadow:0 0 0 1.5px rgba(255,135,145,.78),var(--shadow)}
+video{width:100%;aspect-ratio:16/9;background:#000;object-fit:contain;display:block}
+.meta{padding:12px}
+.title-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.title{font-size:14px;font-weight:650}
+.style{font-size:11px;color:var(--muted);padding:4px 7px;border-radius:999px;background:rgba(255,255,255,.035);white-space:nowrap}
+.stable-id{margin-top:7px;color:#a9b9e8;font-size:11px;word-break:break-all}
+.filename{margin-top:3px;color:var(--muted);font-size:11px;word-break:break-all}
+.facts{margin-top:8px;display:grid;grid-template-columns:auto 1fr;gap:3px 9px;font-size:11px;line-height:1.5}
+.facts dt{color:var(--muted);white-space:nowrap}
+.facts dd{margin:0;color:#c8d3f0}
+.links{margin-top:7px;display:flex;gap:8px;flex-wrap:wrap}
+.links a{color:var(--frost);font-size:11px;text-decoration:none;border-bottom:1px dotted rgba(56,200,192,.5)}
+.label{margin-top:11px;color:var(--muted);font-size:11px}
+.triage,.score{display:flex;gap:6px;margin-top:6px}
+.triage button,.score button{border:0;border-radius:9px;min-height:34px;padding:7px 10px;background:var(--sunken);color:var(--muted);cursor:pointer;box-shadow:inset 2px 2px 6px rgba(0,0,0,.28),inset -1px -1px 4px rgba(255,255,255,.02)}
+.triage button{flex:1}
+.triage button.selected[data-value="keep"]{box-shadow:0 0 0 1.5px var(--primary),inset 2px 2px 6px rgba(0,0,0,.28);color:#fff}
+.triage button.selected[data-value="maybe"]{box-shadow:0 0 0 1.5px var(--ember),inset 2px 2px 6px rgba(0,0,0,.28);color:#fff}
+.triage button.selected[data-value="reject"]{box-shadow:0 0 0 1.5px var(--danger),inset 2px 2px 6px rgba(0,0,0,.28);color:#fff}
+.score button{width:34px;padding:0}
+.score button.selected{box-shadow:0 0 0 1.5px var(--frost),inset 2px 2px 6px rgba(0,0,0,.28);color:#fff}
+textarea{display:block;width:100%;min-height:66px;margin-top:7px;padding:9px 10px;resize:vertical;color:var(--ink)}
+textarea:focus,.toolbar input:focus,.toolbar select:focus{outline:0;box-shadow:0 0 0 3px rgba(122,149,250,.25),inset 3px 3px 8px rgba(0,0,0,.34)}
+.fatal{margin:24px 16px;padding:16px;border-radius:14px;background:var(--surface);box-shadow:var(--shadow);color:var(--danger)}
+@media(max-width:720px){.topline{align-items:flex-start;flex-direction:column}.stats{justify-content:flex-start}.toolbar input{min-width:100%}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topline">
+    <div><div class="eyebrow" id="eyebrow">MOTION CURATION</div><h1>motion screening console</h1></div>
+    <div class="stats">
+      <span class="stat">total <b id="totalCount">0</b></span>
+      <span class="stat">reviewed <b id="reviewedCount">0</b></span>
+      <span class="stat">keep <b id="keepCount">0</b></span>
+      <span class="stat">maybe <b id="maybeCount">0</b></span>
+      <span class="stat">reject <b id="rejectCount">0</b></span>
+    </div>
+  </div>
+  <div class="toolbar">
+    <select id="dataset" title="切换数据源"></select>
+    <input id="q" placeholder="搜索 / stable id / 文件名">
+    <select id="facet"></select>
+    <select id="statusFilter">
+      <option value="all">all status</option>
+      <option value="unrated">unrated</option>
+      <option value="keep">keep</option>
+      <option value="maybe">maybe</option>
+      <option value="reject">reject</option>
+    </select>
+    <select id="minScore">
+      <option value="0">any score</option>
+      <option value="1">score ≥ 1</option>
+      <option value="2">score ≥ 2</option>
+      <option value="3">score ≥ 3</option>
+      <option value="4">score ≥ 4</option>
+      <option value="5">score = 5</option>
+    </select>
+    <button id="modePrimary">primary</button>
+    <button id="modeAll">all</button>
+    <button id="exportJson">export json</button>
+    <button id="exportMd">export md</button>
+  </div>
+  <div class="hint" id="hint"></div>
+</header>
+<main>
+  <div id="sum" class="summary"></div>
+  <div id="pager" class="pager"><button id="prevPage">prev</button><span id="pageInfo">page 1 / 1</span><button id="nextPage">next</button></div>
+  <div id="g" class="grid"></div>
+</main>
+<script>
+const PAGE_SIZE = 32;
+const DATASET_PREF_KEY = 'yoru-review-console-dataset';
+const el = id => document.getElementById(id);
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+let dataset = null;      // the loaded dataset descriptor
+let candidates = [];     // dataset.candidates
+let seed = {};           // historical verdicts shipped with the dataset
+let state = {};          // this browser's verdicts, keyed by stable id
+let mode = 'all';
+let page = 1;
+
+// Records are stored in the same shape the original Locomotion console wrote
+// ({status, score, note}) so both consoles read each other's localStorage.
+// `verdict` is the export-facing name for the same value.
+const recOf = id => state[id] || seed[id] || {status:'', score:0, note:''};
+const isReviewed = r => !!(r.status || r.score || String(r.note || '').trim());
+
+function viewKey() { return dataset.storageKey + ':view'; }
+
+function persist() { localStorage.setItem(dataset.storageKey, JSON.stringify(state)); }
+
+function persistView() {
+  localStorage.setItem(viewKey(), JSON.stringify({
+    q: el('q').value, facet: el('facet').value, status: el('statusFilter').value,
+    minScore: el('minScore').value, mode, page,
+  }));
+}
+
+// A record that has been cleared back to empty must not linger in storage, or it
+// would shadow the dataset seed and silently erase a historical verdict.
+function cleanRecord(id) {
+  const r = state[id];
+  if (r && !isReviewed(r)) delete state[id];
+}
+
+function stats() {
+  let reviewed = 0, keep = 0, maybe = 0, reject = 0;
+  for (const c of candidates) {
+    const r = recOf(c.id);
+    if (isReviewed(r)) reviewed++;
+    if (r.status === 'keep') keep++;
+    else if (r.status === 'maybe') maybe++;
+    else if (r.status === 'reject') reject++;
+  }
+  el('totalCount').textContent = candidates.length;
+  el('reviewedCount').textContent = reviewed;
+  el('keepCount').textContent = keep;
+  el('maybeCount').textContent = maybe;
+  el('rejectCount').textContent = reject;
+}
+
+function filtered() {
+  const qq = el('q').value.trim().toLowerCase();
+  const fv = el('facet').value;
+  const sf = el('statusFilter').value;
+  const ms = Number(el('minScore').value || 0);
+  return candidates.filter(c => {
+    const r = recOf(c.id);
+    return (mode !== 'primary' || c.primary)
+      && (fv === 'all' || c.facet === fv)
+      && (!qq || c.search.toLowerCase().includes(qq))
+      && (sf === 'all' || (sf === 'unrated' ? !isReviewed(r) : r.status === sf))
+      && (!ms || Number(r.score || 0) >= ms);
+  });
+}
+
+function cardHtml(c) {
+  const r = recOf(c.id);
+  const sources = c.sources.map(s => '<source src="' + esc(s) + '" type="video/mp4">').join('');
+  const facts = c.meta.length
+    ? '<dl class="facts">' + c.meta.map(([k, v]) => '<dt>' + esc(k) + '</dt><dd>' + esc(v) + '</dd>').join('') + '</dl>'
+    : '';
+  const links = c.links.length
+    ? '<div class="links">' + c.links.map(([k, v]) => '<a href="' + esc(v) + '" target="_blank" rel="noreferrer">' + esc(k) + ' ↗</a>').join('') + '</div>'
+    : '';
+  return '<article class="card" data-id="' + esc(c.id) + '" data-status="' + esc(r.status || '') + '">'
+    + '<video controls muted loop preload="none">' + sources + '</video>'
+    + '<div class="meta">'
+    + '<div class="title-row"><div class="title">' + esc(c.title) + '</div><span class="style">' + esc(c.badge) + '</span></div>'
+    + '<div class="stable-id">' + esc(c.id) + '</div>'
+    + '<div class="filename">' + esc(c.subtitle) + '</div>'
+    + facts + links
+    + '<div class="label">status</div>'
+    + '<div class="triage">'
+    + ['keep', 'maybe', 'reject'].map(v => '<button data-action="status" data-value="' + v + '" class="' + (r.status === v ? 'selected' : '') + '">' + v + '</button>').join('')
+    + '</div>'
+    + '<div class="label">score</div>'
+    + '<div class="score">' + [1,2,3,4,5].map(n => '<button data-action="score" data-value="' + n + '" class="' + (Number(r.score) === n ? 'selected' : '') + '">' + n + '</button>').join('') + '</div>'
+    + '<div class="label">note</div>'
+    + '<textarea data-action="note" placeholder="喜欢什么 / 不喜欢什么 / 要怎么改">' + esc(r.note || '') + '</textarea>'
+    + '</div></article>';
+}
+
+function render() {
+  const arr = filtered();
+  stats();
+  const modeLabel = mode === 'primary' ? dataset.primaryLabel : dataset.allLabel;
+  el('sum').textContent = 'showing ' + arr.length + ' / ' + candidates.length + ' · ' + modeLabel;
+  const totalPages = Math.max(1, Math.ceil(arr.length / PAGE_SIZE));
+  page = Math.max(1, Math.min(page, totalPages));
+  el('pageInfo').textContent = 'page ' + page + ' / ' + totalPages;
+  el('prevPage').disabled = page <= 1;
+  el('nextPage').disabled = page >= totalPages;
+  el('modePrimary').classList.toggle('active', mode === 'primary');
+  el('modeAll').classList.toggle('active', mode === 'all');
+  el('g').innerHTML = arr.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(cardHtml).join('');
+  persistView();
+}
+
+function exportRows() {
+  return candidates.map(c => {
+    const r = recOf(c.id);
+    return Object.assign({id: c.id}, c.export, {
+      verdict: r.status || '',
+      score: Number(r.score || 0),
+      note: String(r.note || '').trim(),
+    });
+  });
+}
+
+function exportPayload() {
+  const rows = exportRows();
+  const counts = {keep: 0, maybe: 0, reject: 0, unrated: 0};
+  for (const row of rows) counts[row.verdict || 'unrated']++;
+  return {
+    schema: 'yoru-motion-curation/v2',
+    dataset: dataset.key,
+    source: dataset.source,
+    upstream: dataset.upstream,
+    exportedAt: new Date().toISOString(),
+    totalCandidates: candidates.length,
+    counts,
+    selected: rows,
+  };
+}
+
+function download(name, text, type) {
+  const url = URL.createObjectURL(new Blob([text], {type}));
+  const a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function stamp() { return new Date().toISOString().slice(0, 10); }
+
+// Repaint one card in place rather than re-rendering the grid: a full render
+// tears down every <video>, so rating a clip you are watching would reset it,
+// and cards would jump out from under the cursor while filtering by unrated.
+function repaint(card, id) {
+  const r = recOf(id);
+  card.dataset.status = r.status || '';
+  for (const btn of card.querySelectorAll('.triage button')) {
+    btn.classList.toggle('selected', btn.dataset.value === r.status);
+  }
+  for (const btn of card.querySelectorAll('.score button')) {
+    btn.classList.toggle('selected', Number(btn.dataset.value) === Number(r.score));
+  }
+  stats();
+}
+
+el('g').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-action]');
+  if (!btn) return;
+  const card = btn.closest('.card');
+  const id = card.dataset.id;
+  const r = Object.assign({}, recOf(id));
+  if (btn.dataset.action === 'status') {
+    const v = btn.dataset.value;
+    r.status = r.status === v ? '' : v;
+  } else {
+    const v = Number(btn.dataset.value);
+    r.score = Number(r.score) === v ? 0 : v;
+  }
+  state[id] = r;
+  cleanRecord(id);
+  persist();
+  repaint(card, id);
+});
+
+el('g').addEventListener('input', e => {
+  if (e.target.dataset.action !== 'note') return;
+  const id = e.target.closest('.card').dataset.id;
+  state[id] = Object.assign({}, recOf(id), {note: e.target.value});
+  cleanRecord(id);
+  persist();
+  stats();
+});
+
+el('q').oninput = () => { page = 1; render(); };
+el('facet').onchange = () => { mode = 'all'; page = 1; render(); };
+el('statusFilter').onchange = () => { page = 1; render(); };
+el('minScore').onchange = () => { page = 1; render(); };
+el('modePrimary').onclick = () => { mode = 'primary'; page = 1; el('facet').value = 'all'; render(); };
+el('modeAll').onclick = () => { mode = 'all'; page = 1; render(); };
+el('prevPage').onclick = () => { if (page > 1) { page--; render(); window.scrollTo({top: 0, behavior: 'smooth'}); } };
+el('nextPage').onclick = () => { page++; render(); window.scrollTo({top: 0, behavior: 'smooth'}); };
+
+el('exportJson').onclick = () => {
+  download(dataset.key + '-curation-' + stamp() + '.json', JSON.stringify(exportPayload(), null, 2), 'application/json;charset=utf-8');
+};
+
+el('exportMd').onclick = () => {
+  const rows = exportRows();
+  const groups = [['keep', 'keep'], ['maybe', 'maybe'], ['reject', 'reject'], ['', 'unrated']];
+  let md = '# ' + dataset.label + ' curation\n\n- exported: ' + new Date().toISOString()
+    + '\n- candidates: ' + rows.length + '\n\n';
+  for (const [verdict, name] of groups) {
+    const list = rows.filter(x => (x.verdict || '') === verdict);
+    if (!list.length) continue;
+    md += '## ' + name + ' (' + list.length + ')\n\n';
+    for (const r of list) {
+      md += '- `' + r.id + '` · score ' + (r.score || '-') + ' · `' + r.file + '`'
+        + (r.note ? '\n  - ' + r.note.replace(/\n+/g, ' ') : '') + '\n';
+    }
+    md += '\n';
+  }
+  download(dataset.key + '-curation-' + stamp() + '.md', md, 'text/markdown;charset=utf-8');
+};
+
+async function loadDataset(key) {
+  const res = await fetch('datasets/' + key + '.json', {cache: 'no-store'});
+  if (!res.ok) throw new Error('dataset ' + key + ' -> HTTP ' + res.status);
+  dataset = await res.json();
+  candidates = dataset.candidates;
+  seed = dataset.seed || {};
+  try { state = JSON.parse(localStorage.getItem(dataset.storageKey) || '{}') || {}; } catch { state = {}; }
+  localStorage.setItem(DATASET_PREF_KEY, key);
+
+  el('eyebrow').textContent = dataset.label.toUpperCase() + ' CURATION';
+  el('hint').innerHTML = (dataset.hint || '') + ' 选择会自动保存在本浏览器，刷新后继续。';
+  el('facet').innerHTML = '<option value="all">all ' + esc(dataset.facetLabel) + '</option>'
+    + dataset.facetOptions.map(o => '<option value="' + esc(o.value) + '">' + esc(o.label) + '</option>').join('');
+  el('modePrimary').textContent = dataset.primaryLabel;
+  el('modeAll').textContent = dataset.allLabel;
+
+  let view = null;
+  try { view = JSON.parse(localStorage.getItem(viewKey()) || 'null'); } catch { view = null; }
+  mode = (view && view.mode) || dataset.defaultMode || 'all';
+  el('q').value = (view && view.q) || '';
+  el('facet').value = (view && view.facet) || 'all';
+  el('statusFilter').value = (view && view.status) || 'all';
+  el('minScore').value = (view && view.minScore) || '0';
+  page = (view && view.page) || 1;
+
+  render();
+  window.reviewConsole = {dataset, candidates, state, seed, exportPayload};
+}
+
+async function boot() {
+  const index = await (await fetch('datasets/index.json', {cache: 'no-store'})).json();
+  el('dataset').innerHTML = index.datasets
+    .map(d => '<option value="' + esc(d.key) + '">' + esc(d.label) + ' · ' + d.totalCandidates + '</option>').join('');
+  const preferred = localStorage.getItem(DATASET_PREF_KEY);
+  const initial = index.datasets.some(d => d.key === preferred) ? preferred : index.datasets[0].key;
+  el('dataset').value = initial;
+  el('dataset').onchange = () => loadDataset(el('dataset').value);
+  await loadDataset(initial);
+}
+
+boot().catch(err => {
+  document.body.innerHTML = '<div class="fatal"><b>无法载入数据集：</b>' + esc(err.message)
+    + '<br><br>这个页面需要通过 HTTP 打开（fetch 在 file:// 下会被浏览器拦截）。<br>运行 <code>python review/serve.py</code>。</div>';
+});
+</script>
+</body>
+</html>

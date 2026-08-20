@@ -1,0 +1,10 @@
+{
+  "schema": "yoru-motion-curation/v1",
+  "source": "locomotion-pro/locomotion",
+  "exportedAt": "2026-08-19T10:19:06.373Z",
+  "totalCandidates": 427,
+  "archive": "locomotion-2026-08-19.json.bz2",
+  "compression": "bzip2",
+  "uncompressedSha256": "f0b3254bfc67f6dbd947f1b7ec2ef1a14cd6116071808a201b1697965afb2e54",
+  "note": "Decompressing the archive yields the complete user-uploaded JSON snapshot byte-for-byte. Keep/maybe/reject labels are authoritative and must not be rewritten by inference."
+}

@@ -1,0 +1,245 @@
+version: 0.1
+updated: 2026-08-14
+phase: research_inventory
+rules:
+  - "No third-party source code is copied during the inventory phase."
+  - "Unknown or custom licenses default to reference-only until verified."
+  - "Bundled audio/images/fonts must be licensed separately from source code."
+
+repositories:
+  - id: video-shotcraft
+    repo: Vincentwei1021/video-shotcraft
+    url: https://github.com/Vincentwei1021/video-shotcraft
+    preview: https://vincentwei1021.github.io/video-shotcraft/
+    category: motion_library
+    roles: [shot_recipes, motion_gallery, agent_skill, sfx_reference, remotion_components]
+    priority: S
+    license: Apache-2.0
+    license_verified: true
+    reuse_status: candidate_with_attribution_tracking
+    notes: "README currently states 152 shot cards and 209 motion previews; strongest motion-language reference candidate. Audit bundled media separately."
+
+  - id: remotion-bits
+    repo: av/remotion-bits
+    url: https://github.com/av/remotion-bits
+    preview: https://remotion-bits.dev
+    category: motion_library
+    roles: [components, transitions, text, particles, 3d, cli, mcp, agent_skill]
+    priority: S
+    license: MIT
+    license_verified: package_metadata
+    reuse_status: candidate
+    notes: "Shadcn-like discovery/fetch model is highly relevant to a future YORU component registry."
+
+  - id: locomotion
+    repo: locomotion-pro/locomotion
+    url: https://github.com/locomotion-pro/locomotion
+    preview: https://locomotion.pro
+    category: template_gallery
+    roles: [templates, themes, timeline, ai_editor, prompt_gallery]
+    priority: S
+    license: unknown
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "67 templates and six visual styles in current README. Historical repo Thedurancode/locomotion-templates appears to mirror the same content."
+
+  - id: rve-remotion-templates
+    repo: reactvideoeditor/remotion-templates
+    url: https://github.com/reactvideoeditor/remotion-templates
+    preview: https://www.reactvideoeditor.com/remotion-templates
+    category: template_gallery
+    roles: [text, charts, cinematic, transitions, branding, effects]
+    priority: S
+    license: unspecified_in_repo_metadata
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "81 self-contained Remotion examples. Excellent for visual screening; do not assume MIT because GitHub repo metadata currently reports no license."
+
+  - id: clippkit
+    repo: reactvideoeditor/clippkit
+    url: https://github.com/reactvideoeditor/clippkit
+    preview: https://clippkit.com
+    category: motion_library
+    roles: [components, intros, text_effects, transitions, scenes, registry]
+    priority: S
+    license: unknown
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "Designed as a copy/paste Remotion component library; README says attribution is optional but a formal license still needs verification."
+
+  - id: remotionhub-assets
+    repo: remotionhub/remotionhub-assets
+    url: https://github.com/remotionhub/remotionhub-assets
+    category: showcase_reference
+    roles: [assets, manifests, showcase_cases, animation_index]
+    priority: A
+    license: MIT
+    license_verified: true
+    reuse_status: candidate
+    notes: "Contains Remotion cases/manifests and validation scripts; useful as a source/index rather than a style system by itself."
+
+  - id: remotion-core
+    repo: remotion-dev/remotion
+    url: https://github.com/remotion-dev/remotion
+    category: official_remotion
+    roles: [framework, docs, examples, elements, transitions, render]
+    priority: S
+    license: Remotion-License
+    license_verified: true
+    reuse_status: dependency_subject_to_entity_license
+    notes: "Current free-license eligibility includes individuals and for-profit organizations up to 3 employees; larger for-profit organizations require Company License."
+
+  - id: remotion-skills
+    repo: remotion-dev/skills
+    url: https://github.com/remotion-dev/skills
+    category: official_remotion
+    roles: [agent_skills, best_practices, create, markup, render, captions, maps, saas]
+    priority: S
+    license: unknown
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "Primary engineering guidance for Claude Code/Codex/other agents working with Remotion."
+
+  - id: prompt-motion-saas
+    repo: remotion-dev/template-prompt-to-motion-graphics-saas
+    url: https://github.com/remotion-dev/template-prompt-to-motion-graphics-saas
+    category: agent_workflow
+    roles: [prompt_to_motion, ai_generation, saas_template, skill_architecture]
+    priority: A
+    license: unknown
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "Study how official Remotion work decomposes motion knowledge into agent-usable modules."
+
+  - id: remotion-audiogram
+    repo: remotion-dev/template-audiogram
+    url: https://github.com/remotion-dev/template-audiogram
+    category: official_remotion
+    roles: [audio, captions, waveform, social_video]
+    priority: A
+    license: unknown
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "Useful for spoken-word, interview snippets and audio-led social video patterns."
+
+  - id: remotion-next-app
+    repo: remotion-dev/template-next-app-dir
+    url: https://github.com/remotion-dev/template-next-app-dir
+    category: official_remotion
+    roles: [nextjs, app_router, render_app, productization]
+    priority: B
+    license: unknown
+    license_verified: false
+    reuse_status: reference_only_until_verified
+    notes: "Architecture reference for future tool/UI integration, not a visual-style source."
+
+  - id: rve-free-editor
+    repo: reactvideoeditor/free-react-video-editor
+    url: https://github.com/reactvideoeditor/free-react-video-editor
+    preview: https://www.reactvideoeditor.com/open-source
+    category: editor_timeline
+    roles: [timeline, clip_arrangement, text_overlay, remotion_player]
+    priority: A
+    license: RVE-Custom
+    license_verified: readme
+    reuse_status: architecture_reference_only
+    notes: "README explicitly says React Video Editor Pro/RVE license and separate Remotion licensing may apply."
+
+  - id: rve-hyperframes-templates
+    repo: reactvideoeditor/hyperframes-templates
+    url: https://github.com/reactvideoeditor/hyperframes-templates
+    category: template_gallery
+    roles: [html_video, agent_video, templates]
+    priority: B
+    license: unknown
+    license_verified: false
+    reuse_status: observe
+    notes: "Newer adjacent direction; evaluate later after primary Remotion candidates."
+
+  - id: motion-canvas
+    repo: motion-canvas/motion-canvas
+    url: https://github.com/motion-canvas/motion-canvas
+    category: alternative_framework
+    roles: [typescript, canvas, vector_motion, explainer, timeline]
+    priority: A
+    license: MIT
+    license_verified: true
+    reuse_status: inspiration_and_possible_component_reference
+    notes: "Use mainly to steal explainer/vector-motion ideas, not as a planned Remotion replacement."
+
+  - id: revideo
+    repo: midrender/revideo
+    url: https://github.com/midrender/revideo
+    category: alternative_framework
+    roles: [typescript_video, templates, dynamic_input, api_render]
+    priority: A
+    license: MIT
+    license_verified: true
+    reuse_status: inspiration_and_architecture_reference
+    notes: "Relevant for future automated/parameterized video generation."
+
+  - id: manim
+    repo: ManimCommunity/manim
+    url: https://github.com/ManimCommunity/manim
+    category: alternative_framework
+    roles: [python, math_animation, explainer, diagrams]
+    priority: B
+    license: pending_verification
+    license_verified: false
+    reuse_status: inspiration
+    notes: "Keep for technical explainers and diagram motion language; not a general interview/vlog template source."
+
+  - id: moviepy
+    repo: Zulko/moviepy
+    url: https://github.com/Zulko/moviepy
+    category: alternative_framework
+    roles: [python, editing, compositing, batch_processing]
+    priority: B
+    license: pending_verification
+    license_verified: false
+    reuse_status: utility_reference
+    notes: "More useful for batch/post-processing than motion-design aesthetics."
+
+  - id: awesome-motion-design-agent-skills
+    repo: frankxai/awesome-motion-design-agent-skills
+    url: https://github.com/frankxai/awesome-motion-design-agent-skills
+    category: discovery_index
+    roles: [agent_skills, remotion, framer, lenis, discovery]
+    priority: B
+    license: MIT
+    license_verified: readme
+    reuse_status: discovery_only
+    notes: "Treat as a lead generator, not quality endorsement; contains ecosystem/promotional links."
+
+  - id: awesome-ai-video-editing
+    repo: Supersynergy/awesome-ai-video-editing
+    url: https://github.com/Supersynergy/awesome-ai-video-editing
+    category: discovery_index
+    roles: [ai_video, editing, discovery]
+    priority: C
+    license: unknown
+    license_verified: false
+    reuse_status: discovery_only
+    notes: "Secondary ecosystem scan source."
+
+  - id: awesome-video-automation
+    repo: renezander030/awesome-video-automation
+    url: https://github.com/renezander030/awesome-video-automation
+    category: discovery_index
+    roles: [automation, video_pipeline, discovery]
+    priority: C
+    license: unknown
+    license_verified: false
+    reuse_status: discovery_only
+    notes: "Secondary automation scan source."
+
+  - id: remotion-awesome-videos
+    repo: linwuqu/Remotion_awesome_videos
+    url: https://github.com/linwuqu/Remotion_awesome_videos
+    category: showcase_reference
+    roles: [showcase, remotion_examples]
+    priority: C
+    license: unknown
+    license_verified: false
+    reuse_status: visual_reference_only
+    notes: "Potential finished-work reference; needs manual quality check before promotion into main catalog."

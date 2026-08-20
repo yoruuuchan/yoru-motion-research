@@ -1,0 +1,118 @@
+# video-shotcraft — ❤️ Liked
+
+明确保留、愿意进入下一轮实测的候选。
+
+> Generated from [`video-shotcraft-2026-08-20.json.bz2`](video-shotcraft-2026-08-20.json.bz2). The compressed JSON snapshot is the source of truth; do not edit this list independently.
+> Regenerate/check with `python scripts/import-curation-export.py --check curation/video-shotcraft-2026-08-20.json.bz2`.
+
+Total: **137**
+
+- `ai-stream-response`: `ai-stream-response`
+- `assemble-then-type-flyin`: `assemble-then-type-flyin`
+- `autolayout-gap-dial`: `autolayout-gap-dial`
+- `basic-3d-scene`: `basic-3d-scene`
+- `beat-cut-moves`: `beat-cut-accelerando`
+- `beat-step-list-theme-cycle`: `beat-step-list-theme-cycle`
+- `before-after-slider-scrub`: `before-after-slider-scrub`
+- `bottom-push-stack-wipe`: `bottom-push-stack-wipe`
+- `brand-frame-snap`: `brand-frame-snap`
+- `brand-ink-open`: `brand-ink-open`
+- `canvas-materialize-moves`: `panel-to-canvas`, `diagram-cascade`
+- `card-flip-reveal`: `card-flip-reveal`
+- `card-flock-tumble`: `card-flock-tumble`
+- `card-stack`: `card-stack`
+- `chart-live-moves`: `oscilloscope-stream`, `unit-dot-swarm-regroup`, `axis-rescale-shock`
+- `chip-grid-single-select-blackout`: `chip-grid-single-select-blackout`
+- `chip-lift-to-user-pill`: `chip-lift-to-user-pill`
+- `circle-match-iris`: `circle-match-iris`
+- `collab-cursor-moves`: `dialogue-duet`, `cast-ensemble`
+- `color-block-step-wipe`: `color-block-step-wipe`
+- `command-palette-summon`: `command-palette-summon`
+- `countdown-arc-scatter`: `countdown-arc-scatter`
+- `crane-rise-reveal`: `crane-rise-reveal`
+- `crash-zoom-punch`: `crash-zoom-punch`
+- `cube-navigation`: `cube-navigation`
+- `cursor-flyover`: `cursor-flyover`
+- `dashboard-glow-highlight-pill`: `dashboard-glow-highlight-pill`
+- `dataviz-landscape-open`: `dataviz-landscape-open`
+- `deck-deal-flyin`: `deck-deal-flyin`
+- `depth-layer-moves`: `multiplane`, `dolly-zoom`
+- `doc-park-left-pill-deal`: `doc-park-left-pill-deal`
+- `document-typewriter-reveal`: `document-typewriter-reveal`
+- `draw-svg-trace`: `draw-svg-trace`
+- `element-body-moves`: `axial-stretch`, `contact-shadow-lift`
+- `floating-glossy-label-pills`: `floating-glossy-label-pills`
+- `flying-words`: `flying-words`
+- `fracture`: `fracture`
+- `fui-hud-moves`: `reticle-lock-on`
+- `gauge-readout-moves`: `needle-sweep-selftest`, `tape-scroll-fixed-pointer`
+- `glitch-cycle`: `glitch-cycle`
+- `glow-flyline-moves`: `flyline-arc`, `orb-flyline-relay`
+- `gradient-word-sweep`: `gradient-word-sweep`
+- `graze-face-tour`: `graze-face-tour`
+- `hashtag-to-pill-materialize`: `hashtag-to-pill-materialize`
+- `hatch-depth`: `hatch-depth`
+- `icon-performance-moves`: `pop-burst-confirm`, `attention-bounce`
+- `impact-feedback`: `hit-counter`, `anime-impact`
+- `input-trigger-moves`: `cursor-performance`, `keycap-smash-cut`
+- `integration-hub-map`: `integration-hub-map`
+- `letterspace-materialize`: `letterspace-materialize`
+- `light-play-moves`: `halation-bloom`
+- `line-carry-transition`: `line-carry-transition`
+- `list-reveal`: `list-reveal`
+- `list-stack-press`: `list-stack-press`
+- `logo-shrink-wordmark-lockup`: `logo-shrink-wordmark-lockup`
+- `magician-card-flourish`: `magician-card-flourish`
+- `montage-rhythm-moves`: `wright-triple-cut`, `domino-cascade`
+- `mosaic-reframe`: `mosaic-reframe`
+- `neon-frame-forerun`: `neon-frame-forerun`
+- `neon-frame-orbit-drop`: `neon-frame-orbit-drop`
+- `neon-triple-marquee`: `neon-triple-marquee`
+- `odometer-digit-roll`: `odometer-digit-roll`
+- `overhead-camera-moves`: `tilt-reveal`, `overhead-tabletop-drop`
+- `page-turn-transitions`: `cube-rotate`
+- `page-waterfall-wall`: `page-waterfall-wall`
+- `panel-grid-moves`: `grid-flash-mosaic`, `comic-panel-split`
+- `paper-craft-moves`: `masking-tape-slap`, `popup-book-rise`
+- `paper-plane-messenger`: `paper-plane-messenger`
+- `particle-sand-fill`: `particle-sand-fill`
+- `picker-carousel-feature-cycle`: `picker-carousel-feature-cycle`
+- `print-texture-transitions`: `ink-bleed-reveal`
+- `product-card-progressive-assemble`: `product-card-progressive-assemble`
+- `quad-split-parallel-scenes`: `quad-split-parallel-scenes`
+- `radial-ripple-phone-chips`: `radial-ripple-phone-chips`
+- `radial-wave`: `radial-wave`
+- `research-card-stack-scroll`: `research-card-stack-scroll`
+- `row-embed`: `row-embed`
+- `runway-ground-skim`: `runway-ground-skim`
+- `scan-bracket-sweep`: `scan-bracket-sweep`
+- `scanline-annotate-focus`: `scanline-annotate-focus`
+- `scanline-assemble-flyin`: `scanline-assemble-flyin`
+- `scramble`: `scramble`
+- `scroll-brake-moves`: `changelog-scroll-brake`, `brake-reticle-lock`
+- `segmented-thumb-hero`: `segmented-thumb-hero`
+- `shot-transitions`: `flash-cut`, `shot-transitions-4`, `shot-transitions-5`
+- `skeleton-reveal`: `skeleton-reveal`
+- `smear-multiples`: `smear-multiples`
+- `space-camera-moves`: `exploded-view`, `drone-dive-landing`
+- `speed-ramp-freeze`: `speed-ramp`
+- `spotlight-hero-card`: `spotlight-hero-card`
+- `spotlight-sweep-moves`: `glow-wake-sleep-panel`, `slide-spotlight-pan`, `corner-spotlight-reveal`
+- `steep-tilt-glide`: `steep-tilt-glide`
+- `stroke-segment-build`: `stroke-segment-build`
+- `tension-camera-moves`: `bullet-time-freeze-orbit`, `dutch-roll-to-level`, `pull-back-isolation`
+- `terminal-3d`: `terminal-3d`
+- `theme-switch-moves`: `theme-sweep-toggle`, `palette-theme-ripple`
+- `timeline-travel`: `timeline-travel`
+- `trailer-grammar-moves`: `smash-cut`
+- `transition-hidden-cut`: `versus-slam`
+- `type-and-filter`: `type-and-filter`
+- `type-assembly-moves`: `drift-assembly`, `text-on-path`
+- `typewriter-moves`: `terminal-typewriter`, `error-retype`
+- `typing-code-block`: `typing-code-block`
+- `ui-strip-away-outro`: `ui-strip-away-outro`
+- `ui-to-brand-morph`: `icon-flip-bloom`
+- `value-stagger-gradient`: `value-stagger-gradient`
+- `voice-waveform-live`: `voice-waveform-live`
+- `wall-reveal-moves`: `bento-light-up`, `grid-wave-flip`, `wireframe-draw-on`
+- `word-relay-filmstrip`: `word-relay-filmstrip`

@@ -1,0 +1,17 @@
+{
+  "schema": "yoru-motion-review-dataset/v1",
+  "datasets": [
+    {
+      "key": "locomotion",
+      "label": "Locomotion",
+      "file": "locomotion.json",
+      "totalCandidates": 427
+    },
+    {
+      "key": "video-shotcraft",
+      "label": "Video Shotcraft",
+      "file": "video-shotcraft.json",
+      "totalCandidates": 209
+    }
+  ]
+}
