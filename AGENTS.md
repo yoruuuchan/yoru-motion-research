@@ -39,3 +39,22 @@ Use exact historical IDs first, then the patterns in the two preference profiles
 ## Future implementation rule
 
 When a candidate is promoted for testing, keep the upstream reference explicit, test one layer at a time, render in the real target format, and report unresolved problems rather than weakening acceptance criteria.
+
+## Production rules — when a full video is being made from this library
+
+Learned from the first whole-video tests (2026-08-20), where every one of these was violated:
+
+1. **Never re-implement a shot by visual approximation.** If the exact implementation in
+   `shots/` cannot run in the current environment, switch environments or deliver
+   composition code only. A lookalike rewritten from memory (e.g. in OpenCV) is not the
+   curated shot and must not be presented as one.
+2. **Design the energy curve before picking shots.** Write down the intended
+   build → peak → rest structure for the whole piece first, and mark it as an assumption —
+   no gold-standard films exist yet to measure one from. Uniform segment length and
+   uniform density read as flat; that is the documented failure mode.
+3. **No fake filler content.** Invented tech-flavour strings (`NODE-01`, `SYSTEM READY`,
+   made-up metrics) are the content-level equivalent of invented timing numbers, and the
+   same rule applies: use real material, or state explicitly that a value is a placeholder.
+4. **Pick fewer shots than you want to.** Scored keeps outrank unscored ones — start from
+   the eight 5-scores, fill with 4s. A 30-second piece that shows off many library entries
+   is optimizing for the library, not the film.
