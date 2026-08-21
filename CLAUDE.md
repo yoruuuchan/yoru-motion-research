@@ -58,4 +58,7 @@ For each candidate:
 
 Historical rejects are negative evidence, not disposable clutter. A future agent may pre-screen with the preference profile, but Yoru owns the final keep / maybe / reject decision.
 
+Before assembling a **full video** from these shots, read the production rules at the end
+of `AGENTS.md` — they exist because the first whole-video tests violated all of them.
+
 The target is not to fork every upstream project. The target is a small, coherent motion vocabulary that survives real-material testing and can later feed the YORU Motion System.
