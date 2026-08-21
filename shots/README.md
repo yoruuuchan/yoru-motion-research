@@ -7,6 +7,9 @@
 - `maybe/` — 待定的，代码留着但不进主线
 - `_kernel/` — 所有实现共用的两个模块（缓动/插值 + 占位 UI）
 
+**做片挑主镜头，先从 5 分里挑，4 分补位。** 没打分的 keep 也是认可的，
+但那是词汇表，不是购物清单——一条片子用不了几个镜头，别因为库大就堆招式。
+
 上游 https://github.com/Vincentwei1021/video-shotcraft @ `0d6f0b5`，Apache-2.0。
 改动见 [`NOTICE.md`](NOTICE.md)。
 
