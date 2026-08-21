@@ -34,6 +34,17 @@ Yoru 筛选过的 Remotion 动效参考库。做片子的时候来这里找参�
 
 ---
 
+## 来龙去脉
+
+- 上游是两个素材库：[Video Shotcraft](https://github.com/Vincentwei1021/video-shotcraft)
+  （Apache-2.0，209 个可预览镜头样式）和 Locomotion（无 LICENSE，427 个渲染变体，
+  因此只链接不复制）。
+- Yoru 对全部 636 个候选逐条人工评审（keep / maybe / reject，负样本保留），
+  脚本再从评审快照生成这个可浏览的库。每一条 keep 都是一次真实的人工判断，
+  不是自动聚合的 awesome list。
+- 你看到的是 **2026-08-20 从私有工作库脱敏重建的公开版**，供分享 + 日常自用。
+  私人工作档案（真实项目素材的原始测试记录、内部交接文档）不发布；
+  `evaluation/benchmark-a-results.md` 等涉及文件已匿名化改写，工程结论完整保留。
 ## Current phase
 
 **Library assembled.** Both curated sources are published as browsable libraries, and
