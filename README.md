@@ -183,9 +183,8 @@ The source record keeps the exact `base` template, `style`, MP4 `file`, `status`
 The snapshot is stored as standard bzip2 so the uploaded JSON bytes remain exact while keeping the repository diff small. `scripts/sync-locomotion-curation.py` decompresses it with Python's standard library.
 
 ```bash
-python review/serve.py
-python scripts/build-review-datasets.py
-python scripts/import-curation-export.py <exported.json>
+python scripts/sync-locomotion-curation.py
+python scripts/sync-locomotion-curation.py --check
 ```
 
 The check verifies the uncompressed SHA-256, schema, 427-record count, required fields, unique stable IDs, status values, and `locomotion/<base>/<style>` traceability before comparing generated Markdown.
