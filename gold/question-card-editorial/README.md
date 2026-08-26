@@ -25,6 +25,7 @@ MP4 不入库。`stills/` 均由公开版中性占位文案重新渲染，并缩
 | 时长 | 120 帧 / 4 秒 |
 | 卡片数 | 4 |
 | `--label` | `INTERVIEW` |
+| `--tags` | `标签 A · 标签 B · 标签 C · 标签 D`（底部说明行） |
 | 问题文案 | `QUESTIONS` 中的 4 条中性占位文案 |
 | 大标题字体 | Noto Serif CJK Bold，默认 `/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc` |
 | 正文小字字体 | Noto Sans CJK Regular，默认 `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc` |
@@ -91,7 +92,7 @@ python render_question_cards.py --label "YOUR LABEL"
 - 交付日期：2026-08-13
 - 来源：一次采访交付，共 4 张；公开条目不记录客户名
 - 源码状态：事后从会话恢复，不是原生源码存档
-- 公开化处理：真实问题替换为中性占位文案；原 `OPC INTERVIEW` 顶部标签改为 `--label` 参数，默认 `INTERVIEW`；抽帧图使用占位文案重新渲染
+- 公开化处理：真实问题替换为中性占位文案；原 `OPC INTERVIEW` 顶部标签改为 `--label` 参数，默认 `INTERVIEW`；底部说明行改为 `--tags` 参数，默认中性占位；抽帧图使用占位文案重新渲染
 
 ## 验证记录
 

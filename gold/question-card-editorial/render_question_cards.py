@@ -16,6 +16,7 @@ QUESTIONS = [
 ]
 
 DEFAULT_LABEL = "INTERVIEW"
+DEFAULT_TAGS = "标签 A · 标签 B · 标签 C · 标签 D"
 
 # Pure typography / editorial treatment. No illustrations and no logo.
 BG = (255, 255, 255)
@@ -68,7 +69,7 @@ def load_fonts(serif_path, sans_path, mono_path):
     }
 
 
-def render_frame(question, index, frame, label, fonts):
+def render_frame(question, index, frame, label, tags, fonts):
     img = Image.new("RGBA", (W, H), (*BG, 255))
     draw = ImageDraw.Draw(img)
 
@@ -172,7 +173,7 @@ def render_frame(question, index, frame, label, fonts):
     img = draw_text_alpha(
         img,
         (190, bottom_y),
-        "人物 · 收入 · 经验 · 平台",
+        tags,
         fonts["sub"],
         MUTED,
         bottom_p * global_a,
@@ -188,7 +189,7 @@ def render_frame(question, index, frame, label, fonts):
     return img
 
 
-def render_question(question, index, outfile, label, fonts):
+def render_question(question, index, outfile, label, tags, fonts):
     cmd = [
         "ffmpeg",
         "-y",
@@ -218,7 +219,7 @@ def render_question(question, index, outfile, label, fonts):
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 
     for frame in range(FRAMES):
-        img = render_frame(question, index, frame, label, fonts)
+        img = render_frame(question, index, frame, label, tags, fonts)
         proc.stdin.write(img.convert("RGB").tobytes())
 
     proc.stdin.close()
@@ -227,14 +228,14 @@ def render_question(question, index, outfile, label, fonts):
         raise RuntimeError(f"ffmpeg failed for {outfile.name}")
 
 
-def render_stills(stills_dir, label, fonts):
+def render_stills(stills_dir, label, tags, fonts):
     stills_dir.mkdir(parents=True, exist_ok=True)
     for frame, name in [
         (18, "still_018_intro.png"),
         (60, "still_060_hold.png"),
         (110, "still_110_outro.png"),
     ]:
-        img = render_frame(QUESTIONS[0], 1, frame, label, fonts)
+        img = render_frame(QUESTIONS[0], 1, frame, label, tags, fonts)
         preview = img.convert("RGB").resize((640, 360), Image.Resampling.LANCZOS)
         preview.quantize(colors=32, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(
             stills_dir / name, optimize=True
@@ -244,6 +245,7 @@ def render_stills(stills_dir, label, fonts):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--label", default=DEFAULT_LABEL)
+    parser.add_argument("--tags", default=DEFAULT_TAGS)
     parser.add_argument("--output-dir", default="renders")
     parser.add_argument("--stills-dir", default="stills")
     parser.add_argument("--stills-only", action="store_true")
@@ -257,7 +259,7 @@ def main():
     args = parse_args()
     fonts = load_fonts(args.serif_font, args.sans_font, args.mono_font)
 
-    render_stills(Path(args.stills_dir), args.label, fonts)
+    render_stills(Path(args.stills_dir), args.label, args.tags, fonts)
 
     if args.stills_only:
         return
@@ -266,7 +268,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     for i, question in enumerate(QUESTIONS, 1):
         path = output_dir / f"Question_{i:02d}.mp4"
-        render_question(question, i, path, args.label, fonts)
+        render_question(question, i, path, args.label, args.tags, fonts)
         print(f"Rendered: {path}")
 
 
