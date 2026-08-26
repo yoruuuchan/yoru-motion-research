@@ -43,6 +43,18 @@ Yoru 筛选过的 Remotion 动效参考库。做片子的时候来这里找参�
 - 镜头 README 里的时长和参数都是逐帧量出来的。**不要自己编动效数字**——
   找不到就说找不到，或者在注释里写明这是假设。
 
+**视频交付前自检**
+
+Remotion / 片头 / 短视频完成后禁止直接交付：
+
+1. 完整播放：检查节奏、重复动效、转场，避免同一效果换方向重复使用。
+2. 抽关键帧：检查构图、裁切、文字间距、对齐、安全区，人物落版和结尾重点检查。
+3. 核对信息：姓名、英文、Logo、作品名及品牌元素不得出错。
+4. 检查输出：无黑帧、闪帧、错位；MP4 默认保证手机兼容。
+5. 最后判断：是否太花、太挤、太重复，或存在“为了做动效而做动效”。
+
+未完成自检，不得标记为“待审核”。
+
 **打分怎么读**
 
 `keep` 里有的写了分（3–5），有的没写。**没写分不等于差**，等于 Yoru 认可但懒得排名；
@@ -171,8 +183,9 @@ The source record keeps the exact `base` template, `style`, MP4 `file`, `status`
 The snapshot is stored as standard bzip2 so the uploaded JSON bytes remain exact while keeping the repository diff small. `scripts/sync-locomotion-curation.py` decompresses it with Python's standard library.
 
 ```bash
-python scripts/sync-locomotion-curation.py
-python scripts/sync-locomotion-curation.py --check
+python review/serve.py
+python scripts/build-review-datasets.py
+python scripts/import-curation-export.py <exported.json>
 ```
 
 The check verifies the uncompressed SHA-256, schema, 427-record count, required fields, unique stable IDs, status values, and `locomotion/<base>/<style>` traceability before comparing generated Markdown.
