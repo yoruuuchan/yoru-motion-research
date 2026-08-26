@@ -26,6 +26,7 @@ MP4 不入库。`stills/` 均由公开版中性占位文案重新渲染，并缩
 | 卡片数 | 4 |
 | `--label` | `INTERVIEW` |
 | `--tags` | `标签 A · 标签 B · 标签 C · 标签 D`（底部说明行） |
+| `--total` | `4`（右上角计数的总数，按当次卡片数改） |
 | 问题文案 | `QUESTIONS` 中的 4 条中性占位文案 |
 | 大标题字体 | Noto Serif CJK Bold，默认 `/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc` |
 | 正文小字字体 | Noto Sans CJK Regular，默认 `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc` |

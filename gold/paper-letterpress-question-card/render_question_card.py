@@ -132,13 +132,20 @@ def render_frame(frame, base, num_img, num_pos, label, label_pos, title_states, 
 
 
 def main():
+    global SERIF, SANS_BOLD
     parser = argparse.ArgumentParser()
     parser.add_argument("--number", default=DEFAULT_NUMBER)
     parser.add_argument("--line-1", default=DEFAULT_LINES[0])
     parser.add_argument("--line-2", default=DEFAULT_LINES[1])
     parser.add_argument("--out", default="question-card-placeholder.mp4")
     parser.add_argument("--stills-dir", default=None)
+    parser.add_argument("--serif-font", default=SERIF)
+    parser.add_argument("--sans-font", default=SANS_BOLD)
     args = parser.parse_args()
+
+    # Defaults are Linux container paths; override on other platforms.
+    SERIF = args.serif_font
+    SANS_BOLD = args.sans_font
 
     lines = [args.line_1, args.line_2]
     sizes = DEFAULT_SIZES

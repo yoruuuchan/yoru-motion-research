@@ -57,6 +57,9 @@ python render_question_card.py \
   --stills-dir stills
 ```
 
+字体默认值是 Linux 容器路径；其他平台用 `--serif-font` / `--sans-font` 覆盖
+（Windows 用户字体目录常有同款 `NotoSerifCJKsc-Bold.otf` / `NotoSansCJKsc-Bold.otf`）。
+
 脚本内部使用的 FFmpeg 编码参数：
 
 ```bash

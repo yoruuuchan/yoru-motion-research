@@ -69,7 +69,7 @@ def load_fonts(serif_path, sans_path, mono_path):
     }
 
 
-def render_frame(question, index, frame, label, tags, fonts):
+def render_frame(question, index, frame, label, tags, fonts, total=4):
     img = Image.new("RGBA", (W, H), (*BG, 255))
     draw = ImageDraw.Draw(img)
 
@@ -96,7 +96,7 @@ def render_frame(question, index, frame, label, tags, fonts):
     img = draw_text_alpha(
         img,
         (1630, 96),
-        f"{index:02d} / 04",
+        f"{index:02d} / {total:02d}",
         fonts["number_small"],
         ACCENT,
         global_a,
@@ -189,7 +189,7 @@ def render_frame(question, index, frame, label, tags, fonts):
     return img
 
 
-def render_question(question, index, outfile, label, tags, fonts):
+def render_question(question, index, outfile, label, tags, fonts, total=4):
     cmd = [
         "ffmpeg",
         "-y",
@@ -219,7 +219,7 @@ def render_question(question, index, outfile, label, tags, fonts):
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
 
     for frame in range(FRAMES):
-        img = render_frame(question, index, frame, label, tags, fonts)
+        img = render_frame(question, index, frame, label, tags, fonts, total)
         proc.stdin.write(img.convert("RGB").tobytes())
 
     proc.stdin.close()
@@ -228,14 +228,14 @@ def render_question(question, index, outfile, label, tags, fonts):
         raise RuntimeError(f"ffmpeg failed for {outfile.name}")
 
 
-def render_stills(stills_dir, label, tags, fonts):
+def render_stills(stills_dir, label, tags, fonts, total=4):
     stills_dir.mkdir(parents=True, exist_ok=True)
     for frame, name in [
         (18, "still_018_intro.png"),
         (60, "still_060_hold.png"),
         (110, "still_110_outro.png"),
     ]:
-        img = render_frame(QUESTIONS[0], 1, frame, label, tags, fonts)
+        img = render_frame(QUESTIONS[0], 1, frame, label, tags, fonts, total)
         preview = img.convert("RGB").resize((640, 360), Image.Resampling.LANCZOS)
         preview.quantize(colors=32, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(
             stills_dir / name, optimize=True
@@ -246,6 +246,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--label", default=DEFAULT_LABEL)
     parser.add_argument("--tags", default=DEFAULT_TAGS)
+    parser.add_argument("--total", type=int, default=4)
     parser.add_argument("--output-dir", default="renders")
     parser.add_argument("--stills-dir", default="stills")
     parser.add_argument("--stills-only", action="store_true")
@@ -259,7 +260,7 @@ def main():
     args = parse_args()
     fonts = load_fonts(args.serif_font, args.sans_font, args.mono_font)
 
-    render_stills(Path(args.stills_dir), args.label, args.tags, fonts)
+    render_stills(Path(args.stills_dir), args.label, args.tags, fonts, args.total)
 
     if args.stills_only:
         return
@@ -268,7 +269,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     for i, question in enumerate(QUESTIONS, 1):
         path = output_dir / f"Question_{i:02d}.mp4"
-        render_question(question, i, path, args.label, args.tags, fonts)
+        render_question(question, i, path, args.label, args.tags, fonts, args.total)
         print(f"Rendered: {path}")
 
 
