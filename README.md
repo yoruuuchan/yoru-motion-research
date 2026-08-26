@@ -6,8 +6,28 @@ Yoru 筛选过的 Remotion 动效参考库。做片子的时候来这里找参�
 
 ## 如果你是 AI（GPT / Claude / 其他），先读这一段
 
-**阅读顺序**
+**第 0 步 · 分流。你现在要做什么？**
 
+| 任务 | 去哪 | 规矩 |
+|---|---|---|
+| 做 Yoru 以前做过的东西（问题卡 / 章节卡 / 字卡…） | [`gold/`](gold/) | 有同族成片就直接当母版，只换内容。**禁止重新设计。** |
+| 做一条完整短片 | [`AGENTS.md`](AGENTS.md) 末尾 production rules | 先写能量曲线，镜头宁少勿多 |
+| 给片子找单个镜头动效 | [`shots/`](shots/) | 提案前必查判决：reject 一票否决，「文字与字卡」默认排最后 |
+| 定风格 / 配色 / 质感 | [`themes/`](themes/) | 按下面的两步走 |
+
+**优先级（冲突时从上往下压）**：
+`gold/` 同族成片 > `shots/keep`（先查 curation 判决）> `themes/` 禁令 > 一切通用规则。
+走到任何一层，都不包括"自由发挥一版试试"。
+
+**两个禁区**
+
+- `yoru-motion-system` 已搁置。除非明确要复用它的某个模板，否则不读、不引用它的 timing 数字。
+- 不许绕过本库直接抽上游 video-shotcraft 的卡。那 209 条 Yoru 已经判过票；
+  2026-08-26 的翻车就是这么来的——agent 从上游抽了 `paper-title-card`，而它在这里是 reject。
+
+**阅读顺序（要系统了解这个库时）**
+
+0. [`gold/README.md`](gold/README.md) — Yoru 认可过的自己的成片，优先级最高的一层
 1. [`themes/README.md`](themes/README.md) — 八套设计系统，以及每套能用库里哪些东西
 2. `themes/<系统名>.md` — 具体某套的配色、质感、动效规则、禁忌
 3. [`shots/README.md`](shots/README.md) — 137 条镜头，代码就在旁边

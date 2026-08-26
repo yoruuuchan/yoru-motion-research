@@ -8,8 +8,19 @@ Current phase: `research_inventory_and_taste_curation`.
 
 Do not treat upstream repositories as approved dependencies or approved visual styles merely because they are listed here. Yoru's curation is the gate for practical testing.
 
+## Source priority when producing
+
+When Yoru asks for something she has made before, `gold/` outranks everything:
+same-family gold exemplar > `shots/keep` (check the curation verdict first — a
+reject is a veto, and 文字与字卡 ranks last by default) > `themes/` prohibitions >
+any general rule. Never design from scratch while a same-family gold exemplar
+exists, and never pull cards from upstream video-shotcraft directly — the 209
+verdicts here already cover it (2026-08-26: an agent pulled `paper-title-card`
+from upstream; it is a reject here).
+
 ## Source of truth
 
+- Approved own deliverables (positive exemplars): `gold/`
 - Repository inventory: `data/repos.yml`
 - Screening console + candidate datasets: `review/` (see `review/README.md`)
 - Human screening list: `CATALOG.md`

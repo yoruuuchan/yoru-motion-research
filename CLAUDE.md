@@ -12,6 +12,8 @@ Judge any proposal by "does this make something easier to find later?" If the ho
 
 Read first:
 
+0. `gold/README.md` — Yoru's own approved deliverables; for same-family requests
+   this layer outranks everything else in the repo
 1. `shots/README.md` — 137 kept Video Shotcraft shots, code included (Apache-2.0)
 2. `layouts/README.md` — 41 kept Locomotion templates, navigation only (`reference_only`)
 3. `themes/README.md` — the eight local design-system sources, and which library entries survive each
