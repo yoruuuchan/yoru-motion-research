@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="540">
+	<path fill="#06080D" transform="scale(0.5 0.5)" d="M0 0L1920 0L1920 1080L0 1080L0 0Z"/>
+	<text fill="#5FD9FF" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="24" font-weight="600" font-family="Noto Serif CJK SC" x="2220, 2244, 2267.9998, " y="242.37601, ">
+			发起⼈
+	</text>
+	<path fill="#08131D" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2234 300L2866 300L2880 314L2880 586L2866 600L2234 600L2220 586L2220 314L2234 300Z"/>
+	<path fill="none" stroke="#00B8FF" stroke-width="3" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2234 300L2866 300L2880 314L2880 586L2866 600L2234 600L2220 586L2220 314L2234 300Z"/>
+	<path fill="#00B8FF" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2244 322L2298 322L2298 326L2244 326L2244 322Z"/>
+	<text fill="#F2F5F5" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="50" font-weight="600" font-family="Noto Serif CJK SC" x="2250, 2300, 2350, 2399.9998, " y="396.45001, ">
+			创作社群
+	</text>
+	<text fill="#5FD9FF" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="18" font-family="Noto Sans" x="2251, 2262.376, 2273.5718, 2283.5798, 2293.8218, 2303.8296, 2309.9316, 2320.7314, 2330.7395, 2335.4194, 2346.4353, 2360.4932, 2376.8191, 2393.145, 2406.303, 2419.9829, 2426.085, 2436.0928, " y="569.758, ">
+			CREATIVE COMMUNITY
+	</text>
+	<text fill="#95A3B4" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="18" font-family="UnDotum, 은 돋움" x="2252, 2270, " y="532.12, ">
+			示例
+	</text>
+	<text fill="#95A3B4" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="18" font-family="Noto Sans CJK JP" x="2287.9998, " y="532.12, ">
+			创
+	</text>
+	<text fill="#95A3B4" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="18" font-family="UnDotum, 은 돋움" x="2305.9998, 2323.9998, " y="532.12, ">
+			作者
+	</text>
+	<text fill="#95A3B4" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="18" font-family="Noto Sans" x="2346.6794, 2351.5034, " y="532.12, ">
+			· 
+	</text>
+	<text fill="#95A3B4" transform="matrix(0.5 0 0 0.5 -710 0)" font-size="18" font-family="Noto Sans" x="2356.1833, 2365.5254, 2379.5833, 2392.7412, 2406.4209, 2419.561, 2429.5688, " y="532.12, ">
+			FOUNDER
+	</text>
+	<path fill="none" stroke="#00B8FF" stroke-width="2.5" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2550 600L2550 654.22119"/>
+	<path fill="none" stroke="#233047" stroke-width="2" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2550 690L2242.7466 690"/>
+	<path fill="none" stroke="#233047" stroke-width="2" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2550 690L2550 690"/>
+	<path fill="none" stroke="#233047" stroke-width="2" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -710 0)" d="M2550 690L2857.2534 690"/>
+	<defs><radialGradient id="gradient_0" gradientUnits="userSpaceOnUse" fx="960" fy="540" fr="1050" cx="960" cy="540" r="260"><stop offset="0" stop-color="black" stop-opacity="0"/><stop offset="1" stop-color="black" stop-opacity="0.16078432"/></radialGradient></defs>
+	<path fill="url(#gradient_0)" transform="scale(0.5 0.5)" d="M0 0L1920 0L1920 1080L0 1080L0 0Z"/>
+</svg>
