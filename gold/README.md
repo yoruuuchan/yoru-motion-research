@@ -13,6 +13,7 @@
 |---|---|---|---|
 | [question-card-editorial](question-card-editorial/) | 纯文字 | 低 | 采访问题卡：报眉 + 大问题 + 淡色大数字，编辑感 |
 | [paper-letterpress-question-card](paper-letterpress-question-card/) | 纯文字 | 低 | 压印入场问题卡：纸面底 + 巨型淡序号 + 短线收束 |
+| [identity-map-editorial-tech](identity-map-editorial-tech/) | 人物自我介绍 / 信息结构 | 低→中 | 缺少 B-roll 的采访自我介绍：身份合流、组织展开、教学方向与近期重心 |
 | （空位）| 图 + 文 | — | 作品介绍卡、截图配说明——**尚无母版** |
 | （空位）| 图为主 | — | 照片/截图作绝对主体的入场——**尚无母版** |
 
