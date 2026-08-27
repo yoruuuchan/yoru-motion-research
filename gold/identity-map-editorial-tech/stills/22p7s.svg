@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="540">
+	<path fill="#06080D" transform="scale(0.5 0.5)" d="M0 0L1920 0L1920 1080L0 1080L0 0Z"/>
+	<path fill="none" stroke="#00B8FF" stroke-width="2.5" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M3305 815L3440 815L3440 505L3740 505"/>
+	<path fill="#08131D" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M3754 260L4446 260L4460 274L4460 546L4446 560L3754 560L3740 546L3740 274L3754 260Z"/>
+	<path fill="none" stroke="#00B8FF" stroke-width="3" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M3754 260L4446 260L4460 274L4460 546L4446 560L3754 560L3740 546L3740 274L3754 260Z"/>
+	<path fill="#00B8FF" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M3764 282L3818 282L3818 286L3764 286L3764 282Z"/>
+	<text fill="#F2F5F5" transform="matrix(0.5 0 0 0.5 -1500 0)" font-size="50" font-weight="600" font-family="Noto Serif CJK SC" x="3770, 3820, 3870, 3919.9998, " y="356.45001, ">教学⼯作</text>
+	<text fill="#5FD9FF" transform="matrix(0.5 0 0 0.5 -1500 0)" font-size="18" font-family="Noto Sans" x="3771, 3781.0078, 3791.0159, 3802.1577, 3813.5337, 3826.8716, 3832.9736, 3846.6536, 3859.7573, 3864.4375, 3875.3274, 3886.5232, 3897.6653, 3909.041, 3919.0491, 3925.1511, 3936.5269, " y="529.758, ">TEACHING PRACTICE</text>
+	<text fill="#95A3B4" transform="matrix(0.5 0 0 0.5 -1500 0)" font-size="18" font-family="Noto Serif CJK SC" x="3772, 3790, 3807.9998, 3825.9998, 3843.9995, 3861.9995, " y="495.28201, ">当前主要实践</text>
+	<path fill="none" stroke="#00B8FF" stroke-width="2.5" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M4100 560L4100 700"/>
+	<path fill="none" stroke="#233047" stroke-width="2" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M4100 700L3690 700"/>
+	<path fill="none" stroke="#233047" stroke-width="2" stroke-miterlimit="10" transform="matrix(0.5 0 0 0.5 -1500 0)" d="M4100 700L4330 700"/>
+	<defs><radialGradient id="gradient_0" gradientUnits="userSpaceOnUse" fx="960" fy="540" fr="1050" cx="960" cy="540" r="260"><stop offset="0" stop-color="black" stop-opacity="0"/><stop offset="1" stop-color="black" stop-opacity="0.16078432"/></radialGradient></defs>
+	<path fill="url(#gradient_0)" transform="scale(0.5 0.5)" d="M0 0L1920 0L1920 1080L0 1080L0 0Z"/>
+</svg>
